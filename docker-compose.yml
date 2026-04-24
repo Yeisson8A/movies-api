@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  movies-api:
+    build: .
+    container_name: movies-api
+    ports:
+      - "8080:8080"
+    networks:
+      - movies-network
+
+networks:
+  movies-network:
+    external: true
