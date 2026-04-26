@@ -58,6 +58,69 @@ com.ochoa.yeisson.movies_api
 
 Endpoint: http://localhost:8080/graphql
 
+## **Esquema**
+````
+type Movie {
+    id: ID!
+    title: String!
+    releaseYear: Int
+    director: Director
+    actors: [Actor]
+    reviews: [Review]
+}
+
+type Actor {
+    id: ID!
+    name: String!
+}
+
+type Director {
+    id: ID!
+    name: String!
+}
+
+type Review {
+    id: ID!
+    comment: String
+    rating: Int
+}
+
+type Query {
+    movies: [Movie]
+    movieById(id: ID!): Movie
+    actors: [Actor]
+    actorById(id: ID!): Actor
+    directors: [Director]
+    directorById(id: ID!): Director
+}
+
+type Mutation {
+    createMovie(input: MovieInput): Movie
+    updateMovie(id: ID!, input: MovieInput): Movie
+    deleteMovie(id: ID!): Boolean
+    createActor(name: String): Actor
+    updateActor(id: ID!, name: String): Actor
+    deleteActor(id: ID!): Boolean
+    createDirector(name: String): Director
+    updateDirector(id: ID!, name: String): Director
+    deleteDirector(id: ID!): Boolean
+    addReview(movieId: ID!, input: ReviewInput): Review
+    assignDirector(movieId: ID!, directorId: ID!): Movie
+    addActors(movieId: ID!, actorIds: [ID!]): Movie
+    removeActor(movieId: ID!, actorId: ID!): Movie
+}
+
+input MovieInput {
+    title: String!
+    releaseYear: Int
+}
+
+input ReviewInput {
+    comment: String
+    rating: Int
+}
+````
+
 ### **Ejemplo Query**
 
 ````
