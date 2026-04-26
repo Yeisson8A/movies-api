@@ -129,3 +129,12 @@ La configuración utilizada para la base de datos se encuentra en el archivo `ap
 mvn clean install
 mvn spring-boot:run
 ````
+
+## **Testing**
+
+- Para ejecutar las pruebas se deberá usar el comando: `mvn test`
+- Para ejecutar las pruebas con cobertura se deberá usar el comando: `mvn clean test`
+
+<img width="541" height="460" alt="image" src="https://github.com/user-attachments/assets/2993d5c3-1437-4ac6-80fc-a7b4c39e9a77" />
+<img width="540" height="171" alt="image" src="https://github.com/user-attachments/assets/492899d6-4401-423a-b673-c05500bff925" />
+
