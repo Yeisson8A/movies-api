@@ -10,7 +10,11 @@ public class ValidationUtils {
     }
 
     public static void requireMinValue(Integer value, int min, String fieldName) {
-        if (value != null && value < min) {
+        if (value == null) {
+            throw new BadRequestException(fieldName + " is required");
+        }
+
+        if (value < min) {
             throw new BadRequestException(fieldName + " must be >= " + min);
         }
     }
